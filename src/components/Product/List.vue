@@ -21,11 +21,15 @@
                 Ürün Fiyatı:
                 {{ product.price }}
               </div>
+              <div>
+                Ürün Barkodu:
+                {{ product.barcode }}
+              </div>
             </div>
             <div class="col-md-2">
               <button
                 type="button"
-                class="btn btn-danger float-end"
+                class="btn btn-danger btn-sm float-end"
                 @click="del(product.id)"
               >
                 Sil

@@ -2,20 +2,26 @@
   <div class="card">
     <div class="card-header">Yeni Ürün Ekle</div>
     <div class="card-body">
-      <div class="input-group mb-3">
+      <div class="input-group input-group-sm mb-3">
         <span class="input-group-text">Ürün Adı</span>
         <input type="text" class="form-control" v-model="name" />
       </div>
-      <div class="input-group mb-3">
+      <div class="input-group input-group-sm mb-3">
         <span class="input-group-text">Ürün Fiyatı</span>
         <input type="number" step="0.01" class="form-control" v-model="price" />
       </div>
-      <div class="input-group mb-3">
+
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Ürün Barkodu</span>
+        <input type="text" class="form-control" v-model="barcode" />
+      </div>
+
+      <div class="input-group input-group-sm mb-3">
         <span class="input-group-text">Ürün Resmi</span>
         <input type="file" class="form-control" @change="onChange($event)" />
       </div>
       <img height="128" class="img-responsive text-center mb-3" :src="photo" />
-      <button type="button" class="btn btn-primary float-end" @click="add()">
+      <button type="button" class="btn btn-primary btn-sm float-end" @click="add()">
         Kaydet
       </button>
     </div>
@@ -28,6 +34,7 @@ export default {
     return {
       name: "",
       price: 0,
+      barcode: 0,
       photo: null,
     };
   },
@@ -45,10 +52,12 @@ export default {
           id: new Date() * 1,
           name: this.name,
           price: this.price,
+          barcode: this.barcode,
           photo: this.photo,
         });
         this.name = "";
         this.price = 0;
+        this.barcode = 0;
         this.photo = null;
       }
     },
