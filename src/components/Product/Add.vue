@@ -8,7 +8,7 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Ürün Fiyatı</span>
-        <input type="text" class="form-control" v-model="price" />
+        <input type="number" step="0.01" class="form-control" v-model="price" />
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Ürün Resmi</span>
@@ -26,9 +26,9 @@ import toBase64 from "../../toBase64";
 export default {
   data() {
     return {
-      title: "",
+      name: "",
       price: 0,
-      photo: null
+      photo: null,
     };
   },
   methods: {
@@ -40,14 +40,14 @@ export default {
       });
     },
     add() {
-      if (this.title) {
+      if (this.name) {
         this.emitter.emit("add", {
           id: new Date() * 1,
-          title: this.title,
+          name: this.name,
           price: this.price,
-          photo: this.photo
+          photo: this.photo,
         });
-        this.title = "";
+        this.name = "";
         this.price = 0;
         this.photo = null;
       }
