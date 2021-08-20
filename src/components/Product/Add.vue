@@ -10,12 +10,10 @@
         <span class="input-group-text">Ürün Fiyatı</span>
         <input type="number" step="0.01" class="form-control" v-model="price" />
       </div>
-
       <div class="input-group input-group-sm mb-3">
         <span class="input-group-text">Ürün Barkodu</span>
         <input type="text" class="form-control" v-model="barcode" />
       </div>
-
       <div class="input-group input-group-sm mb-3">
         <span class="input-group-text">Ürün Resmi</span>
         <input type="file" class="form-control" @change="onChange($event)" />
