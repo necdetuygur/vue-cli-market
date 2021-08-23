@@ -2,24 +2,24 @@
   <div class="card">
     <div class="card-header">Yeni Ürün Ekle</div>
     <div class="card-body">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Ürün Adı</span>
-        <input type="text" class="form-control" v-model="name" />
+      <div class="form-group mb-3">
+        <label class="col-form-label">Ürün Adı</label>
+        <input type="text" class="form-control" placeholder="Ürün Adı" v-model="name" />
       </div>
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Ürün Fiyatı</span>
-        <input type="number" step="0.01" class="form-control" v-model="price" />
+      <div class="form-group mb-3">
+        <label class="col-form-label">Ürün Fiyatı</label>
+        <input type="number" step="0.01" class="form-control" placeholder="Ürün Fiyatı" v-model="price" />
       </div>
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Ürün Barkodu</span>
-        <input type="text" class="form-control" v-model="barcode" />
+      <div class="form-group mb-3">
+        <label class="col-form-label">Ürün Barkodu</label>
+        <input type="text" class="form-control" placeholder="Ürün Barkodu" v-model="barcode" />
       </div>
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Ürün Resmi</span>
-        <input type="file" class="form-control" @change="onChange($event)" />
+      <div class="form-group mb-3">
+        <label class="col-form-label">Ürün Resmi</label>
+        <img height="128" class="img-responsive text-center mb-3" :src="photo" />
+        <input ref="file" type="file" class="form-control" @change="onChange($event)" />
       </div>
-      <img height="128" class="img-responsive text-center mb-3" :src="photo" />
-      <button type="button" class="btn btn-primary btn-sm float-end" @click="add()">
+      <button type="button" class="btn btn-primary float-end" @click="add()">
         Kaydet
       </button>
     </div>
@@ -30,10 +30,10 @@ import toBase64 from "../../toBase64";
 export default {
   data() {
     return {
-      name: "",
-      price: 0,
-      barcode: 0,
-      photo: null,
+      name: null,
+      price: null,
+      barcode: null,
+      photo: null
     };
   },
   methods: {
@@ -53,10 +53,11 @@ export default {
           barcode: this.barcode,
           photo: this.photo,
         });
-        this.name = "";
-        this.price = 0;
-        this.barcode = 0;
+        this.name = null;
+        this.price = null;
+        this.barcode = null;
         this.photo = null;
+        this.$refs.file.value = null;
       }
     },
   },

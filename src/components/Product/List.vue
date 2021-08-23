@@ -29,7 +29,7 @@
             <div class="col-md-2">
               <button
                 type="button"
-                class="btn btn-danger btn-sm float-end"
+                class="btn btn-danger float-end"
                 @click="del(product.id)"
               >
                 Sil
